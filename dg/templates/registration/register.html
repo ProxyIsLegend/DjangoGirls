@@ -5,8 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-    <form>
-        {{ form }}
+    <form method="post" action="/register">
+        {% csrf_token %}
+        {{ user_form }}
+        <button>Регистрация</button>
     </form>
 </body>
 </html>

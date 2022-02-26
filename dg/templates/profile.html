@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a class="back" href="/"></a>
+	<div class="profile">
+		<img src="{{MEDIA_URL}}avatars/default.png">
+		<div class="info">
+			<h2>Username: {{ user.username }}</h2>
+			<h2>First name: {{ user.first_name }}</h2>
+			<h2>Почта: {{ user.email }}</h2>
+            <form action="/profile/" method="post">
+                {% csrf_token %}
+                <h3>Change Password</h3>
+                {{change_pass_form}}
+                <button onclick="submit">Submit</button>
+            </form>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+body{
+	background: #DCE1DE;
+	color: #1F2421;
+}
+a{
+  text-decoration: none;
+  color: #1F2421;
+  display:flex;
+}
+a:visited{
+	color:none;
+  }
+a:hover{
+	color:none;
+  }
+a:focus{
+	color:none;
+  }
+a:hover, a:active{
+	color:none;
+}
+img{
+   border-radius: 50%;
+   height: 30%;
+   box-shadow: 15px 15px 0px 5px #1F2421;
+}
+img:hover{
+	transition: 0.5s;
+	height: 35%;
+}
+.back{
+	left: 0px;
+	width: 80px;
+	height: 60px;
+	position: fixed;
+	border-radius: 0 40% 40% 0 / 0% 50% 50% 0;
+ }
+.back:hover{
+    transition: 0.5s;
+    background-color: #216869;
+    color: #DCE1DE;
+    box-shadow: 10px 20px 0px 10px #1F2421;
+}
+.back::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-top: 5px solid;
+    border-left: 5px solid;
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+.profile{
+	background-color: #216869;
+	width: 50%;
+	padding: 2.5%;
+	display: flex;
+	white-space: pre-wrap;
+	margin-left: auto;
+    margin-right: auto;
+}
+.info{
+	background-color: #DCE1DE;
+	box-shadow: 30px 30px 0px 0px #1F2421;
+	margin-left: 10%;
+	width: 50%;
+}
+</style>
+</html>
